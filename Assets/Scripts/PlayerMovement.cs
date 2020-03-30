@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 	public Animator anim;
 	
  
- 
 	void Start () {
 		myTransform = transform;							// sets myTransform to this GameObject.transform
 		destinationPosition = myTransform.position;			// prevents myTransform reset
@@ -19,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 	}
  
 	void Update () {
- 
 		// keep track of the distance between this gameObject and destinationPosition
 		destinationDistance = Vector3.Distance(destinationPosition, myTransform.position);
  

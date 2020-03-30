@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 3499072501123602313}
   - component: {fileID: 3593283475225604344}
   - component: {fileID: 3593283475225604347}
+  - component: {fileID: 1447110625641403957}
   m_Layer: 0
   m_Name: FlameElemental
   m_TagString: FlameElemental
@@ -5497,6 +5498,23 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1447110625641403957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593348095008743585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95139fe787ef9114c8c93f9180ec105f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: FlameElemental
+  unitLevel: 1
+  damage: 2
+  maxHP: 15
+  currentHP: 15
 --- !u!1 &3593368426277068361
 GameObject:
   m_ObjectHideFlags: 0
