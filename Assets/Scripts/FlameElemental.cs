@@ -13,6 +13,10 @@ public class FlameElemental : Unit
         maxHP = 10;
         currentHP = maxHP;
         experience = unitLevel * unitLevel;
+		this.spell = new SpellAttack();
+		this.spell.spellName = "Fireball";
+		this.spell.spellDamage = this.damage * 2;
+		this.spell.spellEffect = "burn";
     }
 
     // Update is called once per frame

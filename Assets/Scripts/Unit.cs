@@ -8,10 +8,9 @@ public abstract class Unit : MonoBehaviour
 	public int experience;
     public string unitName;
 	public int unitLevel;
-	
-	//What is this variable for?
-	//Assuming it's more like "strength" or "attack"
-	public int damage;
+	public bool isAlive;
+	public int damage; //Attack Damage
+	protected SpellAttack spell;
 	
 	public int maxHP;
 	public int currentHP;
@@ -22,14 +21,15 @@ public abstract class Unit : MonoBehaviour
 	*/
 	public int TakeDamage(int dmg)
 	{
-		currentHP -= dmg;
+		this.currentHP -= dmg;
 		
 		//Update will take care of removing the bugger when dead.
-		//This can be chain called
+		//This can be chain called:
 		//Player.experience += Critter.TakeDamage(Player.Attack());
 		
 		if(currentHP <= 0) {
 			//If critter dies, return experience.
+			isAlive = false;
 			return experience;
 		}
 		else {
@@ -44,6 +44,14 @@ public abstract class Unit : MonoBehaviour
 	public int Attack(){
 		System.Random RNG = new System.Random();
 		return RNG.Next(0, damage);
+	}
+	
+	public object[] SpecialAttack() {
+		object[] returnArray = new object[3];
+		returnArray[0] = this.spell.spellName;
+		returnArray[1] = this.spell.spellDamage;
+		returnArray[2] = this.spell.spellEffect;
+		return returnArray;
 	}
 	void update(){
 		if (this.currentHP <= 0){

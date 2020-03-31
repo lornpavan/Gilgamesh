@@ -14,8 +14,8 @@ public class BattleSystem : MonoBehaviour
 	public Transform playerBattleStation;
 	public Transform enemyBattleStation;
 	
-	Unit playerUnit;
-	Unit enemyUnit;
+	public Unit playerUnit;
+	public Unit enemyUnit;
 	
 	public Text dialogueText;
 	
@@ -24,24 +24,11 @@ public class BattleSystem : MonoBehaviour
 	
 	public BattleState state;
 	
-	
-    // Start is called before the first frame update
-	/*void Start()
-	{
-		state = BattleState.NOCOMBAT;
-	}*/
 
 	public BattleState getState()
 	{
 		return state;
 	}
-	
-    /*void Start()
-    {
-        state = BattleState.NOCOMBAT;
-		//StartCoroutine(SetupBattle());
-		int i = 0;
-    }*/
 	
 	public void Start()
     {
@@ -57,7 +44,7 @@ public class BattleSystem : MonoBehaviour
 		GameObject enemyGO = enemyPrefab;
 		enemyUnit = enemyGO.GetComponent<Unit>();
 		
-		//dialogueText.text = enemyUnit.unitName;
+		dialogueText.text = enemyUnit.unitName;
 		//Instantiate(playerPrefab,playerBattleStation);
 		int i = 0;
 		while (i<2) {
@@ -76,15 +63,15 @@ public class BattleSystem : MonoBehaviour
 	
 	IEnumerator PlayerAttack()
 	{
-		bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 		enemyHUD.setHP(enemyUnit.currentHP);
-		dialogueText.text = "The attack is successful!";
+		playerUnit.experience += enemyUnit.TakeDamage(playerUnit.Attack());
 		
 		yield return new WaitForSeconds(2f);
 		
-		if(isDead)
+		
+		if(!playerUnit.isAlive)
 		{
-			state = BattleState.WON;
+			state = BattleState.LOST;
 			EndBattle();
 		}
 		else
@@ -92,6 +79,7 @@ public class BattleSystem : MonoBehaviour
 			state = BattleState.ENEMYTURN;
 			StartCoroutine(EnemyTurn());
 		}
+		
 	}
 	
 	IEnumerator EnemyTurn()
@@ -100,14 +88,15 @@ public class BattleSystem : MonoBehaviour
 		
 		yield return new WaitForSeconds(1f);
 		
-		bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+		enemyUnit.TakeDamage(playerUnit.Attack());
 		playerHUD.setHP(playerUnit.currentHP);
 		
 		yield return new WaitForSeconds(1f);
 		
-		if (isDead)
+		
+		if (!enemyUnit.isAlive)
 		{
-			state = BattleState.LOST;
+			state = BattleState.WON;
 			EndBattle();
 		}
 		else
@@ -115,6 +104,7 @@ public class BattleSystem : MonoBehaviour
 			state = BattleState.PLAYERTURN;
 			PlayerTurn();
 		}
+		
 	}
 	
 	void EndBattle()
