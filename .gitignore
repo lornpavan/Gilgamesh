@@ -155,6 +155,7 @@ crashlytics-build.properties
 
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
+<<<<<<< HEAD
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /[Ll]ibrary/
 /[Tt]emp/
@@ -232,3 +233,6 @@ Library/EditorSnapSettings.asset
 Library/LastSceneManagerSetup.txt
 Library/shadercompiler-UnityShaderCompiler.exe0.log
 Library/SourceAssetDB
+=======
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+>>>>>>> parent of 5a5ba13... Update .gitignore
