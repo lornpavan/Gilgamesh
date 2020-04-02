@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellAttack : MonoBehaviour
 {
-    public string spellName;
-	public int spellDamage;
-	public string spellEffect;
+public string spellName;
+public int spellDamage;
+public string spellEffect;
 }
