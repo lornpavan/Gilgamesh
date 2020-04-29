@@ -566,8 +566,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3593283475715675766}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.04167294, b: 0, a: 1}
   m_Intensity: 8
   m_Range: 10
@@ -733,6 +734,8 @@ GameObject:
   - component: {fileID: 3593283475225604344}
   - component: {fileID: 3593283475225604347}
   - component: {fileID: 1447110625641403957}
+  - component: {fileID: 6350431163433212387}
+  - component: {fileID: -995652068273178216}
   m_Layer: 0
   m_Name: FlameElemental
   m_TagString: FlameElemental
@@ -748,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3593348095008743585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 952.5, y: 0, z: 511}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 3588730189673050973}
@@ -5507,14 +5510,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 3593348095008743585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95139fe787ef9114c8c93f9180ec105f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d4f1617eee6c474a88b0b3b52b55183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: FlameElemental
+  experience: 0
+  unitName: 
   unitLevel: 1
-  damage: 2
+  isAlive: 1
+  damage: 3
   maxHP: 15
   currentHP: 15
+--- !u!65 &6350431163433212387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593348095008743585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!54 &-995652068273178216
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593348095008743585}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3593368426277068361
 GameObject:
   m_ObjectHideFlags: 0

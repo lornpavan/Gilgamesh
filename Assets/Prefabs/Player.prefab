@@ -4053,12 +4053,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6955056085528924002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95139fe787ef9114c8c93f9180ec105f, type: 3}
+  m_Script: {fileID: 11500000, guid: 85bec174dd62d7f47a1a98faf31bb6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Player
+  experience: 0
+  unitName: 
   unitLevel: 1
-  damage: 3
+  isAlive: 1
+  damage: 5
   maxHP: 20
   currentHP: 20
 --- !u!114 &3659379388514217790
