@@ -28036,6 +28036,7 @@ MonoBehaviour:
     type: 3}
   playerUnit: {fileID: 240336167}
   dialogueText: {fileID: 1603426516}
+  levelText: {fileID: 1738591947}
   enemyHasSpawned: 0
 --- !u!4 &817027245
 Transform:
@@ -44881,7 +44882,7 @@ PrefabInstance:
     - target: {fileID: 6955056085528564546, guid: 0fc4e08ab1f0f4248b520508ed3cdf10,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 745.2
+      value: 766
       objectReference: {fileID: 0}
     - target: {fileID: 6955056085528564546, guid: 0fc4e08ab1f0f4248b520508ed3cdf10,
         type: 3}
@@ -44891,7 +44892,7 @@ PrefabInstance:
     - target: {fileID: 6955056085528564546, guid: 0fc4e08ab1f0f4248b520508ed3cdf10,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 835.9
+      value: 861.2
       objectReference: {fileID: 0}
     - target: {fileID: 6955056085528564546, guid: 0fc4e08ab1f0f4248b520508ed3cdf10,
         type: 3}
@@ -66598,7 +66599,7 @@ Animator:
   m_GameObject: {fileID: 5635158027822370198}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2ef8e6599b7f9934e8ff0d64c5325a1f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5e3b70c3daaba664f8f0637b19d2b263, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -70129,7 +70130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3372692296593654787}
-  m_LocalRotation: {x: -0.02976775, y: 0.11945083, z: 0.086115, w: 0.9886504}
+  m_LocalRotation: {x: -0.029767755, y: 0.11945083, z: 0.086115025, w: 0.9886504}
   m_LocalPosition: {x: -0.13359664, y: -0.003372879, z: 0.04100296}
   m_LocalScale: {x: 0.9999999, y: 0.99999905, z: 1.0000012}
   m_Children:
@@ -73749,7 +73750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635158027822370198}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 828, y: -2.5, z: 197.8}
+  m_LocalPosition: {x: 805.3, y: -2.5, z: 197.8}
   m_LocalScale: {x: 40, y: 30, z: 40}
   m_Children:
   - {fileID: 6529394640321185598}

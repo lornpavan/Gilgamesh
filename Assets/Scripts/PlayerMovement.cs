@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
 	private Transform myTransform;				// this transform
 	private Vector3 destinationPosition;		// The destination Point
 	private float destinationDistance;			// The distance between myTransform and destinationPosition
-	public float moveSpeed;		// The Speed the character will move
+    public static float originalSpeed = 10;
+	public static float moveSpeed = 10;		// The Speed the character will move
 	public Animator anim;
     public BattleState combatState;
     //BattleSystem battlesystem;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 			moveSpeed = 0;
         }
 		else if(destinationDistance > .5f){			// To Reset Speed to default
-			moveSpeed = 15;
+			moveSpeed = originalSpeed;
 		}
 		
 		

@@ -65,9 +65,9 @@ public abstract class Unit : MonoBehaviour
 	/**
 	* Returns a random number between 0 and 'damage' variable
 	*/
-	public int Attack(){
+	public int Attack(){        
 		var RNG = Random.Range(0,3);
-		int dmg = damage-1*RNG;
+		int dmg = unitLevel + (damage-1*RNG);
 		return dmg;
 	}
 
@@ -86,10 +86,10 @@ public abstract class Unit : MonoBehaviour
 		return returnArray;
 	}
 	void update(){
-		//if (this.currentHP <= 0){
-			//Destroy(this);
-		//}
-	}
+        //if (this.currentHP <= 0){
+        //Destroy(this);
+        //}
+    }
 
     IEnumerator delay()
     {
@@ -100,4 +100,7 @@ public abstract class Unit : MonoBehaviour
         Destroy(gameObject);
         //paused = false;
     }
+
+
+   
 }

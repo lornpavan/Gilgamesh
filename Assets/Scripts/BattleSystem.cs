@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { NOCOMBAT, START, PLAYERTURN,PLAYERATTACKED, ENEMYTURN, WON, LOST, }
 
@@ -16,6 +17,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerBattleHud;
     private Animator[] flameElementalAnim;
     private Animator playerAnim;
+    private int deathCount;
 
     public Transform enemyBattleStation;
 
@@ -24,6 +26,7 @@ public class BattleSystem : MonoBehaviour
     Unit selectedEnemy;
 
     public Text dialogueText;
+    public Text levelText;
 
     BattleHUD playerHUD;
     BattleHUD enemyHUD;
@@ -44,6 +47,7 @@ public class BattleSystem : MonoBehaviour
         Instantiate(enemySpawner2, new Vector3(746,0,740),Quaternion.identity);
         createSpawner++;
         enemyUnit = new Unit[5];
+        deathCount = 0;
 
         GameObject playerGO = playerPrefab;
         playerUnit = playerGO.GetComponent<Unit>();
@@ -62,7 +66,7 @@ public class BattleSystem : MonoBehaviour
 
         playerAnim.Play("arthur_idle_01");
 
-        if (createSpawner == 2 || createSpawner == 3)
+        if (createSpawner == 2 || createSpawner == 3 || createSpawner == 4)
         {
             mainCamera.GetComponent<Camera>().orthographicSize = 100;
         }
@@ -168,11 +172,12 @@ public class BattleSystem : MonoBehaviour
                 playerHUD.setHP(playerUnit.currentHP);
                 yield return new WaitForSeconds(.5f);
             }
-            else x++;
-        }
-		
-		yield return new WaitForSeconds(1f);
-		
+            else
+            {
+                x++;
+                deathCount++;
+            }
+        }		
 		
 		if (x == elementalNum)
 		{
@@ -203,6 +208,10 @@ public class BattleSystem : MonoBehaviour
             spawnCounter = 0;            
             enemyHasSpawned = false;
             createSpawner += 1;
+            if (createSpawner == 5)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
             CreateSpawner(createSpawner);
             enemyBattleHud.SetActive(false);
             mainCamera.GetComponent<Camera>().orthographicSize = 60;
@@ -225,8 +234,22 @@ public class BattleSystem : MonoBehaviour
             if (!enemyUnit[i].isAlive)
             {
                 x++;
+                deathCount++;
             }
         }
+
+        //yield return new WaitForSeconds(1f);
+        if (deathCount == 4)
+        {
+            playerUnit.unitLevel += 1;
+            dialogueText.text = "Level Up! Health, Damage, and Speed Increased";
+            PlayerMovement.moveSpeed += 1;
+            PlayerMovement.originalSpeed += 1;
+            deathCount = 0;
+        }
+
+
+
         if (x == elementalNum)
             state = BattleState.WON;
     }
@@ -258,7 +281,10 @@ public class BattleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        playerHUD.setHP(playerUnit.currentHP);
+        print(PlayerMovement.moveSpeed);
+        levelText.text = "lvl " + playerUnit.unitLevel.ToString();
+
         if (EnemySpawner.spawnEnemy)
         {
             while (spawnCounter < 1)
@@ -268,7 +294,6 @@ public class BattleSystem : MonoBehaviour
                 spawnCounter++;
             }
         }
-
 
         if (enemyHasSpawned)
         {
@@ -335,6 +360,10 @@ public class BattleSystem : MonoBehaviour
         if (createSpawner == 3)
         {
             Instantiate(enemySpawner3, new Vector3(218, -8, 416), Quaternion.Euler(0,45, 0));
+        }
+        if (createSpawner == 4)
+        {
+            Instantiate(enemySpawner3, new Vector3(748, -8, 207), Quaternion.Euler(0, 90, 0));
         }
     }
 
